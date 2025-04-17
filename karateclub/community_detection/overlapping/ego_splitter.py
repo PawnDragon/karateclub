@@ -19,14 +19,14 @@ class EgoNetSplitter(Estimator):
     def __init__(
             self,
             resolution: float = 1.0,
-            local_resolution: float = 1.0,  # 新增局部聚类分辨率参数
-            min_community_size: int = 2,  # 新增最小社区规模参数
+            local_resolution: float = 2.0,
+            min_community_size: int = 2,
             seed: int = 42,
             weight: Optional[str] = "weight"
     ):
         self.resolution = resolution
-        self.local_resolution = local_resolution  # 局部聚类专用分辨率
-        self.min_community_size = min_community_size  # 最小社区成员数
+        self.local_resolution = local_resolution
+        self.min_community_size = min_community_size
         self.seed = seed
         self.weight = weight
 
@@ -166,10 +166,10 @@ class EgoNetSplitter(Estimator):
         return self.overlapping_partitions
 
     def get_clusters(self) -> Dict[int, list[int]]:
-        r"""获取聚类结果，展示有多少个聚类以及每个聚类中包含哪些客户端。
+        r"""get clustering results, show how many clusters there are and which clients are included in each cluster.
 
         Return types:
-            * **clusters** *(dictionary)* - 聚类结果，键是聚类 ID，值是该聚类中包含的节点列表。
+            * **clusters** *(dictionary)* - Clustering results, where the key is the cluster ID and the value is the list of nodes included in that cluster.
         """
         clusters = {}
         for node_id, cluster_ids in self.overlapping_partitions.items():
