@@ -27,11 +27,6 @@ def test_egonet_splitter():
     assert graph.number_of_nodes() == len(memberships)
     assert indices == nodes
     assert type(memberships) == dict
-    print()
-    print(memberships)
-    clusters = model.get_clusters()
-    for cluster_id, nodes in sorted(clusters.items()):
-        print(f"Cluster {cluster_id}: {nodes}")
 
     graph = nx.newman_watts_strogatz_graph(150, 5, 0.3)
 
@@ -46,11 +41,6 @@ def test_egonet_splitter():
     assert graph.number_of_nodes() == len(memberships)
     assert indices == nodes
     assert type(memberships) == dict
-    print()
-    print(memberships)
-    clusters = model.get_clusters()
-    for cluster_id, nodes in sorted(clusters.items()):
-        print(f"Cluster {cluster_id}: {nodes}")
 
     # Test weighted graph
     graph = nx.les_miserables_graph()
@@ -65,11 +55,6 @@ def test_egonet_splitter():
     assert graph.number_of_nodes() == len(memberships)
     assert indices == nodes
     assert type(memberships) == dict
-    print()
-    print(memberships)
-    clusters = model.get_clusters()
-    for cluster_id, nodes in sorted(clusters.items()):
-        print(f"Cluster {cluster_id}: {nodes}")
 
     # Force unweighted
     graph = nx.les_miserables_graph()
@@ -84,11 +69,6 @@ def test_egonet_splitter():
     assert graph.number_of_nodes() == len(memberships)
     assert indices == nodes
     assert type(memberships) == dict
-    print()
-    print(memberships)
-    clusters = model.get_clusters()
-    for cluster_id, nodes in sorted(clusters.items()):
-        print(f"Cluster {cluster_id}: {nodes}")
 
 def test_nnsed():
     """
