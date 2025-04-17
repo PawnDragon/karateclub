@@ -70,6 +70,7 @@ def test_egonet_splitter():
     assert indices == nodes
     assert type(memberships) == dict
 
+
 def test_nnsed():
     """
     Test the NNSED procedure.

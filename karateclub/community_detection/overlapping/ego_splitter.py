@@ -12,6 +12,7 @@ class EgoNetSplitter(Estimator):
 
     Args:
         resolution (float): Resolution parameter of Python Louvain. Default 1.0.
+        local_resolution (float): Local resolution parameter of Python Louvain. Default 2.0.
         seed (int): Random seed value. Default is 42.
         weight (str): the key in the graph to use as weight. Default to 'weight'. Specify None to force using an unweighted version of the graph.
     """
@@ -20,13 +21,11 @@ class EgoNetSplitter(Estimator):
             self,
             resolution: float = 1.0,
             local_resolution: float = 2.0,
-            min_community_size: int = 2,
             seed: int = 42,
             weight: Optional[str] = "weight"
     ):
         self.resolution = resolution
         self.local_resolution = local_resolution
-        self.min_community_size = min_community_size
         self.seed = seed
         self.weight = weight
 
